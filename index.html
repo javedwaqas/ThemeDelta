@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Theme Delta</title>
+        <script src="raphael.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="https://github.com/the55/usmap/blob/master/demo/g.raphael.js"></script>
+    	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script src="raphael.json.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ThemeDelta.js" type="text/javascript" charset="utf-8"></script>
+        <script src="Theme.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ThemeData.js" type="text/javascript" charset="utf-8"></script>
+        <script src="RangeSelector.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  
+  <body>
+  <div id="container" style= "width:1200px; height: 800px; margin:0 auto; border: 2px solid; border-color: #66FF99;">
+  	<div id="header" style="background-color:#66FF99;height:3%">
+  		<input type="button" value="Reload" style="width:50px; height: 18px; font-size:10px; float: left;" onclick="reload()"></input>
+		<h1 style="margin-top:0px; margin-bottom:0;text-align:center; font-size:18px;">Theme Delta</h1>
+		<div id="busy" style="font-size: 1em; text-align: center; z-index: 1000; margin-top: 5px; display: none;">Loading ... </div>
+	</div>
+	<div id="holder" style="width: 84.7%;height: 96%; float: left; background-color: #FFFFE0; border-right: 2px solid; border-color: #66FF99; overflow-y:scroll;">    
+    </div>
+    <div id="menu" style="width: 15%;height: 96%; float:left;">
+    	<h4 style="margin-top:10px; margin-bottom:10px;text-align:center; font-size:18px;">Enter theme to search and sort!</h4>
+    	<input type="text" id="Theme" style="width: 70%; height: 10px;"></input>
+    	<input type="button" value="Search" style="width:25%; height: 18px; font-size:10px;" onclick="sortData()"></input>
+    	<h4 style="margin-top:20px; margin-bottom:2px; text-align:center; clear: both;  font-size:18px;">Select Time Range</h4>
+    	<div id="range" style="width: 95%; height: 20px; margin-top:0px; margin:0 auto;"></div>
+    	<h4 style="margin-top:20px; margin-bottom:2px; text-align:center; clear: both;  font-size:18px;">Filter Words</h4>
+    	<div id="selected" style="width: 95%; height: 500px; margin-top:2px; margin:0 auto; border: 2px solid; border-color: pink;"></div>
+    	
+    </div>
+    <div id="footer" style="background-color:#66FF99;height: 1%;clear:both;text-align:center; margin-top:0px; margin-bottom:0px; font-size:8px;">
+		Copyright © 2012-2013 Waqas Javed and Niklas Elmqvist
+	</div>
+  </div>
+  
+   <script type="text/javascript">  		
+		// Load the Google API
+		//https://docs.google.com/spreadsheet/ccc?key=0AltLYhwFdtludFZPbUJKV3ZkMnRfa01RX0JMMHNiamc#gid=0
+		//google.load("visualization", "1"); 
+		 //google.load('visualization', '1', {packages: ['corechart']});
+		// Set callback to run when API is loaded 
+		//google.setOnLoadCallback(initialize);
+		 
+		var container1, canvas1, visualization1, visualization2, displayFilter;
+		window.onload = function () {
+		//function initialize(){
+			container1 = document.getElementById('holder');
+			canvas1 = Raphael(container1, container1.offsetWidth-20, container1.style.height-20);
+			visualization1 = new ThemeDelta(canvas1, container1);
+
+			var container2 = document.getElementById('range');
+			var canvas2 = Raphael(container2, container2.offsetWidth, container2.style.height);
+			visualization2 = new RangeSelector(canvas2, container2, container2.offsetWidth, container2.offsetHeight, visualization1);
+
+			var container3 = document.getElementById('selected');
+			var canvas3 = Raphael(container3, container3.offsetWidth, container3.style.height);
+			visualization1.setFilterCanvas(canvas3);
+
+			//canvas3.path("M 10 10 C 20 30 40 40 50 50 C 40 50 20 40 10 20 z");
+			};
+		  		
+		function sortData(){
+			try{
+  	  	  		if (document.getElementById('Theme').value == ""){
+  	  	  			alert('Error in query: Empty query');
+  	  	  	  		return;
+  	  	  		}
+
+  	  	  		var theme = document.getElementById('Theme').value;
+  	  	  		 
+  	  	  		var num = ThemeDelta.findArrayIndex(visualization1.data.themes_names, theme, 0);
+  	  	  		
+  	  	  		if (num == -1){
+  	  	  			alert('Error in query: Word not Found');
+	  	  	  		return;
+  	  	  		}
+  	  	  		
+  				visualization1.filterData(num);
+  				//visualization1.displayFilters(theme);
+			}
+			finally {}
+	  			
+		}
+
+		function reload(){
+			visualization1.refresh();
+			visualization2.refresh();
+		}
+		
+    </script>
+   </body>
+</html>
