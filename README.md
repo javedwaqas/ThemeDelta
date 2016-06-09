@@ -1,8 +1,7 @@
 # ThemeDelta Visualization
 
 A web-based tool to visualize temporal trends, clustering, and reorganization in time-indexed textual datasets.
-To get additional information about the tool and underlying topic modeling algorithm please refer to the ThemeDelta paper @ http://www.umiacs.umd.edu/~elm/projects/theme-delta/theme-delta.pdf 
-<a href="http://www.umiacs.umd.edu/~elm/projects/theme-delta/theme-delta.pdf">ThemeDelta paper</a>
+To get additional information about the tool and underlying topic modeling algorithm please refer to the <a href="http://www.umiacs.umd.edu/~elm/projects/theme-delta/theme-delta.pdf">ThemeDelta</a> paper
 
 ## Usage
 
