@@ -3,20 +3,6 @@ ThemeData = function (){
 };
 
 ThemeData.prototype.generateData = function (){
-//	this.themes = [
-//	               [[0,1,2], [3,4,5], [6]],
-//	               [[0,1,2], [3,4,5,6]],
-//	               [[0,1,2,3], [4], [5,6]]
-//	              ];
-//	this.themes = [
-//	               [[0,1], [2,3], [4,5], [6]],
-//	               [[0,1,2], [3,4,5,6]],
-//	               [[0,1,2,3], [4], [5,6]],
-//	               [[6,4], [3,5,1], [2,0]],
-//	               [[0,1,2], [3,4,5,6]]
-//	              ];
-//	this.themes_names = ["A","B","C","D","E","F","G"];
-	
 	this.themes_string = [
 	                      [["A","B","C"], ["D","E","F","G"]],
 	                      [["A","B","C","D"], ["A","E"], ["F","G"]],
@@ -32,24 +18,7 @@ ThemeData.prototype.generateData = function (){
 	                      [[2,6,8,9], [1,3], [6,8]]
 	                      ];
 	
-//	this.themes_string = [
-//	                      [["A"]],
-//	                      [["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R"]],
-//	                      [["A","G"]],
-//	                      [["A","B"]],
-//	                      [["A"]]
-//	                      ];
-//	this.themes_freq = [
-//	                      [[1]],
-//	                      [[0.1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],
-//	                      [[1,1]],
-//	                      [[1,1]],
-//	                      [[1]]
-//	                      ];
-	
 	this.timeStamps = ["1","2","3","4","5"];
-
-	// this.timeStamps = ["1","2","3","4","5"];
 
 	// this.themes_string = [[['two', 'hospital', 'tho', 'city', 'board', 'president'], ['hour', 'epidemic', 'number', 'four', 'pneumonia', 'twenty'], ['county', 'campaign', 'loan', 'work', 'quota', 'committee', 'liberty'], ['church', 'service', 'universe', 'hospital', 'year'], ['german', 'mask', 'general']], [['county', 'court', 'campaign', 'loan', 'business', 'committee', 'liberty'], ['even', 'daughter', 'wife', 'service', 'spent', 'son', 'family', 'home', 'friend'], ['men', 'german', 'camp', 'general', 'call', 'army', 'report', 'company'], ['case', 'disease', 'mask', 'cross', 'red'], ['hour', 'city', 'number', 'hospital', 'four', 'pneumonia', 'board', 'twenty']], [['boy', 'service', 'work', 'number', 'hospital', 'call', 'home', 'cross', 'company', 'red', 'quota'], ['people', 'men', 'two', 'business', 'ban', 'meet'], ['even', 'daughter', 'spent', 'son', 'tho', 'afternoon', 'family', 'year', 'friend'], ['case', 'given', 'camp', 'general', 'pneumonia', 'army'], ['town', 'city', 'report', 'open', 'today']], [['court', 'people', 'church', 'ban', 'meet', 'open'], ['even', 'town', 'daughter', 'wife', 'spent', 'son', 'afternoon', 'family', 'church', 'friend'], ['given', 'service', 'committee', 'president'], ['disease', 'mask', 'universal', 'epidemic', 'hospital', 'four', 'today'], ['boy', 'work', 'cross', 'red']]];
 	
